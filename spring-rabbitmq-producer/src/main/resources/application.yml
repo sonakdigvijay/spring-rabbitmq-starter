@@ -1,0 +1,23 @@
+server:
+  port: 8082
+
+spring:
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        concurrency: 4
+        max-concurrency: 8
+        retry:
+          initial-interval: 5000
+
+producer:
+  exchange:
+    name: producer-exchange
+  queue:
+    name: producer-queue
+  routing:
+    key: producer-routing-key
